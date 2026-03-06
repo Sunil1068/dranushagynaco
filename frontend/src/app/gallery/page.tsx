@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 import Logo from '@/components/Logo';
 
 const galleryImages = [
@@ -26,23 +26,16 @@ export default function GalleryPage() {
     <main className="min-h-screen bg-[#FDF8F0]/30 transition-colors duration-500">
       <Navbar />
 
-      {/* Hero Header Section - Cohesive Card UI (Image 2 Style) */}
+      {/* Hero Header Section - Seamless Blend UI */}
       <section className="pt-24 pb-10 md:pt-32 md:pb-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#FDF8F0] rounded-3xl p-6 md:p-8 shadow-xl border border-[#874B61]/5 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 hover:shadow-2xl transition-all duration-300">
-            {/* Logo Component instead of generic icon */}
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-[#874B61]/5 rounded-2xl flex items-center justify-center flex-shrink-0 animate-in zoom-in duration-500">
-              <Logo size={48} />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-2xl md:text-3xl font-bold text-[#874B61] tracking-tight mb-2 animate-in slide-in-from-left duration-500">
-                Patient <span className="text-[#874B61]">Gallery</span>
-              </h1>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed animate-in fade-in slide-in-from-bottom duration-700 delay-200">
-                Step into our Patient Gallery—a celebration of courage, resilience, and healing. Each image reflects unique journeys and inspiring stories of those we&apos;ve cared for. Join us in celebrating their paths to wellness and smiles that tell their stories.
-              </p>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-[#874B61] tracking-tight mb-4 animate-in slide-in-from-top duration-700 flex items-center justify-center gap-4">
+            <Camera size={40} className="text-[#874B61]/80" strokeWidth={1.5} />
+            <span>Patient <span className="text-[#874B61]">Gallery</span></span>
+          </h1>
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
+            Step into our Patient Gallery—a celebration of courage, resilience, and healing. Each image reflects unique journeys and inspiring stories of those we&apos;ve cared for. Join us in celebrating their paths to wellness and smiles that tell their stories.
+          </p>
         </div>
       </section>
 
