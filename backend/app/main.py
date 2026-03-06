@@ -35,7 +35,7 @@ app.include_router(patient_router, prefix="/api")
 app.include_router(doctor_router, prefix="/api")
 
 
-@app.get("/", include_in_schema=False)
+@app.api_route("/", methods=["GET", "HEAD"], include_in_schema=False)
 async def root():
     return RedirectResponse(url="/docs")
 
