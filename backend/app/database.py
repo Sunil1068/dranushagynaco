@@ -11,6 +11,10 @@ otp_collection = db["otps"]
 
 async def init_db():
     try:
+        # Masked URL for logging to verify environment variable is picked up
+        masked_url = MONGODB_URL[:15] + "..." if MONGODB_URL else "None"
+        print(f"Connecting to MongoDB: {masked_url} (Database: {DATABASE_NAME})")
+        
         # Verify connection
         await client.admin.command('ping')
         print(f"Successfully connected to MongoDB at {DATABASE_NAME}")
