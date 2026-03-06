@@ -272,7 +272,7 @@ export default function HomePage() {
       {/* Education & Credentials */}
       <section id="experience" className="py-20 bg-gradient-to-br from-[#874B61]/5 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="section-title text-[#874B61]">Education &amp; <span className="text-[#874B61]">Credentials</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4">Education &amp; <span className="text-[#874B61]">Credentials</span></h2>
           <p className="section-subtitle">
             Strong academic foundation with advanced surgical and reproductive training
           </p>
@@ -296,7 +296,7 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="section-title text-[#874B61]">Special <span className="text-[#874B61]">Training</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4">Special <span className="text-[#874B61]">Training</span></h2>
             <p className="section-subtitle">Advanced clinical skills and specialized fellowship programs</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -313,9 +313,9 @@ export default function HomePage() {
 
           {/* Procedures */}
           <div className="mt-28 max-w-[900px] mx-auto">
-            <h3 className="text-2xl md:text-[32px] font-semibold text-center text-[#874B61] mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#874B61] mb-10">
               Reproductive &amp; Emergency Procedures
-            </h3>
+            </h2>
             <div className="space-y-4">
               {procedures.map((proc) => (
                 <div
@@ -366,7 +366,7 @@ export default function HomePage() {
       {/* Leadership & Vision */}
       <section className="py-12 md:py-20 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center border-t border-[#874B61]/10 pt-16">
-          <h2 className="section-title text-[#874B61]">Leadership &amp; <span className="text-[#874B61]">Vision</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4">Leadership &amp; <span className="text-[#874B61]">Vision</span></h2>
           <p className="section-subtitle">
             Committed to advancing women&apos;s healthcare through expertise and compassion
           </p>
@@ -387,10 +387,9 @@ export default function HomePage() {
       <section id="contact" className="py-12 md:py-20 bg-[#FDF8F0]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#874B61] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-6">
               Get in <span className="text-[#874B61]">Touch</span>
             </h2>
-            <div className="w-20 h-1.5 bg-[#874B61] mx-auto rounded-full mb-6 opacity-30" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Visit our hospital or call to book an appointment
             </p>
