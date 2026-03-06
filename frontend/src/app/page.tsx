@@ -142,19 +142,19 @@ export default function HomePage() {
 
               {/* Mobile Portrait (Visible only on mobile) */}
               <div className="md:hidden mb-8">
-                <div className="relative w-full max-w-[280px] aspect-[4/5] mx-auto rounded-3xl overflow-hidden shadow-xl border-4 border-[#F6EEDE] bg-purple-50">
+                <div className="relative w-full aspect-[1/1.2] mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-[#FDF8F0] bg-[#F6EEDE]">
                   <Image
                     src="/images/profile-1.jpeg"
                     alt="Dr. Anusha B"
                     fill
-                    className="object-cover object-center scale-[1.02]"
+                    className="object-cover object-top scale-[1.05]"
                     priority
                     quality={100}
-                    sizes="280px"
+                    sizes="100vw"
                   />
-                  <div className="absolute bottom-3 left-3 bg-[#874B61] text-white p-2 rounded-xl shadow-lg">
-                    <Stethoscope className="h-4 w-4 mb-0.5" />
-                    <p className="text-[10px] font-medium">OBG Specialist</p>
+                  <div className="absolute bottom-4 left-4 bg-[#874B61] text-white px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 border border-white/20">
+                    <Stethoscope className="h-4 w-4" />
+                    <p className="text-xs font-bold tracking-wide uppercase">OBG Specialist</p>
                   </div>
                 </div>
               </div>
@@ -346,17 +346,17 @@ export default function HomePage() {
               Comprehensive women&apos;s healthcare services with advanced medical expertise
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-[#F6EEDE] border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 group text-left"
+                className="bg-[#F6EEDE] border border-[#874B61]/10 rounded-2xl p-4 md:p-6 hover:shadow-xl transition-all duration-300 group text-left"
               >
-                <div className="w-16 h-16 bg-[#874B61]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#874B61] transition-colors">
-                  <service.icon className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
+                <div className="w-10 h-10 md:w-16 md:h-16 bg-[#874B61]/10 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-[#874B61] transition-colors">
+                  <service.icon className="h-5 w-5 md:h-8 md:w-8 text-[#874B61] group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+                <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-2 md:utf-8 md:mb-3">{service.title}</h3>
+                <p className="text-[11px] md:text-base text-gray-600 leading-relaxed line-clamp-3 md:line-clamp-none">{service.desc}</p>
               </div>
             ))}
           </div>

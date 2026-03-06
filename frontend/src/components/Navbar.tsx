@@ -81,13 +81,23 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-gray-600"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile Menu Button & persistent Login */}
+          <div className="flex items-center gap-2 md:hidden">
+            {!isAuthenticated && (
+              <Link
+                href="/login"
+                className="bg-[#874B61] text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-sm"
+              >
+                Login
+              </Link>
+            )}
+            <button
+              className="p-2 text-gray-600"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
