@@ -215,11 +215,11 @@ export default function FeedbackForm({ onSubmitSuccess }: FeedbackFormProps) {
                     <button
                         type="button"
                         onClick={() => setForm({ ...form, complications: !form.complications })}
-                        className={`relative w-12 h-6 rounded-full transition-colors ${form.complications ? 'bg-red-400' : 'bg-gray-300'
+                        className={`relative w-12 h-6 rounded-full transition-all duration-300 ${form.complications ? 'bg-[#874B61]' : 'bg-[#E5E7EB]'
                             }`}
                     >
                         <span
-                            className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${form.complications ? 'translate-x-6' : 'translate-x-0.5'
+                            className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300 ${form.complications ? 'translate-x-6' : 'translate-x-0'
                                 }`}
                         />
                     </button>
@@ -229,11 +229,11 @@ export default function FeedbackForm({ onSubmitSuccess }: FeedbackFormProps) {
                     <button
                         type="button"
                         onClick={() => setForm({ ...form, recommend: !form.recommend })}
-                        className={`relative w-12 h-6 rounded-full transition-colors ${form.recommend ? 'bg-green-400' : 'bg-gray-300'
+                        className={`relative w-12 h-6 rounded-full transition-all duration-300 ${form.recommend ? 'bg-[#874B61]' : 'bg-[#E5E7EB]'
                             }`}
                     >
                         <span
-                            className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${form.recommend ? 'translate-x-6' : 'translate-x-0.5'
+                            className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300 ${form.recommend ? 'translate-x-6' : 'translate-x-0'
                                 }`}
                         />
                     </button>

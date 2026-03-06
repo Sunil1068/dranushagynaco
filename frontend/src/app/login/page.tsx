@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import { sendOTP, verifyOTP, doctorLogin } from '@/lib/api';
 import Navbar from '@/components/Navbar';
@@ -10,7 +10,21 @@ import { Phone, Shield, ArrowRight, Loader2, Stethoscope, Lock } from 'lucide-re
 const DOCTOR_PHONE = "9999999999"; // Doctor's official number
 
 export default function UnifiedLoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#FDF8F0] flex items-center justify-center">
+        <Loader2 className="h-10 w-10 animate-spin text-[#874B61]" />
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
+  );
+}
+
+function LoginContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectPath = searchParams.get('redirect') || '/testimonials';
   const { login } = useAuth();
 
   const [step, setStep] = useState<'phone' | 'password' | 'otp'>('phone');
@@ -66,7 +80,7 @@ export default function UnifiedLoginPage() {
     try {
       const res = await verifyOTP(phone, otp, name || undefined);
       login(res.access_token, res.role, res.patient_id, res.name);
-      router.push('/testimonials'); // Redirect all patients to feedback page as requested
+      router.push(redirectPath);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -81,7 +95,7 @@ export default function UnifiedLoginPage() {
         <div className="w-full max-w-md">
           <div className="card !p-8 shadow-2xl border-2 border-[#874B61]/5">
             <div className="text-center mb-8">
-              <div className="w-20 h-20 bg-[#874B61] rounded-[2rem] flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-white">
+              <div className="w-20 h-20 bg-[#874B61] rounded-[2rem] flex items-center justify-center mx-auto mb-6 shadow-xl">
                 {step === 'password' ? (
                   <Stethoscope className="h-10 w-10 text-white" />
                 ) : (

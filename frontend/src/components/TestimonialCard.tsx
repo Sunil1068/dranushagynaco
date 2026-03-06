@@ -21,7 +21,7 @@ export default function TestimonialCard({
     createdAt,
 }: TestimonialCardProps) {
     return (
-        <div className="group relative bg-white rounded-2xl shadow-md border border-[#874B61]/10 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+        <div className="group relative bg-white rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 border border-[#874B61]/5 p-7 transition-all duration-500 overflow-hidden">
             {/* Decorative gradient corner */}
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#874B61]/5 to-transparent rounded-bl-full" />
 

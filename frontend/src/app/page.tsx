@@ -364,7 +364,7 @@ export default function HomePage() {
       </section>
 
       {/* Leadership & Vision */}
-      <section className="py-12 md:py-20 bg-[#FFFFFF]">
+      <section className="py-12 md:py-20 bg-[#FFFFFF] hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center border-t border-[#874B61]/10 pt-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4">Leadership &amp; <span className="text-[#874B61]">Vision</span></h2>
           <p className="section-subtitle">
@@ -387,7 +387,7 @@ export default function HomePage() {
       <section id="contact" className="py-12 md:py-20 bg-[#FDF8F0]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-2">
               Get in <span className="text-[#874B61]">Touch</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -442,7 +442,7 @@ export default function HomePage() {
                   </div>
                   <div className="pt-2 border-t border-[#874B61]/10 flex items-center gap-2">
                     <Activity className="h-3 w-3 text-[#874B61]" />
-                    <span className="text-[10px] font-bold text-[#874B61] uppercase tracking-wider">24/7 Energy Available</span>
+                    <span className="text-[10px] font-bold text-[#874B61] uppercase tracking-wider">24/7 Emergency Available</span>
                   </div>
                 </div>
               </div>

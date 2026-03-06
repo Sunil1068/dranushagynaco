@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 import TestimonialCard from '@/components/TestimonialCard';
 import FeedbackForm from '@/components/FeedbackForm';
 import {
-    MessageSquareHeart, Sparkles, Loader2, MessageCircle, HeartHandshake
+    MessageSquareHeart, Sparkles, Loader2, MessageCircle, HeartHandshake, Send
 } from 'lucide-react';
 
 interface PublicFeedback {
@@ -36,6 +36,8 @@ export default function TestimonialsPage() {
     useEffect(() => {
         if (isAuthenticated && role === 'patient') {
             setShowForm(true);
+        } else {
+            setShowForm(false);
         }
     }, [isAuthenticated, role]);
 
@@ -51,36 +53,39 @@ export default function TestimonialsPage() {
     };
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-white via-[#FDF8F0] to-white">
+        <main className="min-h-screen bg-[#FDF8F0]">
             <Navbar />
 
             {/* Hero Section */}
-            <section className="pt-20 md:pt-28 pb-10 px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#874B61]/10 rounded-full text-[#874B61] text-sm font-medium mb-6">
+            <section className="pt-24 md:pt-32 pb-12 px-4 relative overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#874B61]/20 to-transparent" />
+                <div className="max-w-4xl mx-auto text-center relative z-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[#874B61]/10 rounded-full text-[#874B61] text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
                         <MessageSquareHeart className="h-4 w-4" />
                         Patient Testimonials
                     </div>
-                    <h1 className="text-3xl md:text-5xl font-bold text-[#874B61] mb-6">
+                    <h1 className="text-4xl md:text-6xl font-bold text-[#874B61] mb-8 tracking-tight">
                         What Our Patients Say
                     </h1>
-                    <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+                    <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
                         Real experiences from patients who trusted Dr. Anusha B with their care.
                         Read their stories and share your own experience.
                     </p>
-                    <button
-                        onClick={() => {
-                            if (isAuthenticated && role === 'patient') {
-                                document.getElementById('feedback-form-section')?.scrollIntoView({ behavior: 'smooth' });
-                            } else {
-                                router.push('/login?redirect=/testimonials');
-                            }
-                        }}
-                        className="btn-primary inline-flex items-center gap-2 px-8 py-3 text-lg"
-                    >
-                        <HeartHandshake className="h-5 w-5" />
-                        Share Your Feedback
-                    </button>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button
+                            onClick={() => {
+                                if (isAuthenticated && role === 'patient') {
+                                    document.getElementById('feedback-form-section')?.scrollIntoView({ behavior: 'smooth' });
+                                } else {
+                                    router.push('/login?redirect=/testimonials#feedback-form-section');
+                                }
+                            }}
+                            className="btn-primary flex items-center gap-3 px-10 py-4 text-lg shadow-xl hover:shadow-[#874B61]/20"
+                        >
+                            <Send className="h-6 w-6" />
+                            Submit Feedback
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -94,11 +99,11 @@ export default function TestimonialsPage() {
                         </div>
                     ) : testimonials.length === 0 ? (
                         <div className="text-center py-16">
-                            <div className="w-20 h-20 bg-[#F6EEDE] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <MessageCircle className="h-10 w-10 text-[#874B61]/40" />
+                            <div className="w-24 h-24 bg-white border border-[#874B61]/10 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                                <MessageCircle className="h-10 w-10 text-[#874B61]/30" />
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-600">No testimonials yet</h3>
-                            <p className="text-gray-400 mt-1 text-sm">Be the first to share your experience!</p>
+                            <h3 className="text-2xl font-bold text-[#874B61]">No testimonials yet</h3>
+                            <p className="text-gray-500 mt-2 text-lg font-light">Be the first to share your experience!</p>
                         </div>
                     ) : (
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -31,7 +31,7 @@ export default function PatientPage() {
   const router = useRouter();
   const { isAuthenticated, role, token, name } = useAuth();
 
-  const [tab, setTab] = useState<'form' | 'history'>('form');
+  const [tab] = useState<'history'>('history');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -103,286 +103,102 @@ export default function PatientPage() {
   if (!isAuthenticated || role !== 'patient') return null;
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-[#FDF8F0]">
       <Navbar />
-      <div className="pt-20 pb-12 px-4 max-w-4xl mx-auto">
+      <div className="pt-28 pb-12 px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Welcome, <span className="text-pink-500">{name || 'Patient'}</span>
+          <h1 className="text-3xl font-bold text-[#874B61]">
+            Welcome, {name || 'Patient'}
           </h1>
           <p className="text-gray-500 mt-1">Manage your medical feedback and treatment history</p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex gap-2 mb-6">
-          <button
-            onClick={() => setTab('form')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-              tab === 'form'
-                ? 'bg-pink-500 text-white shadow-md'
-                : 'bg-white text-gray-600 border border-gray-200 hover:bg-pink-50'
-            }`}
-          >
-            <Send className="h-4 w-4" />
-            Submit Feedback
-          </button>
-          <button
-            onClick={() => setTab('history')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-              tab === 'history'
-                ? 'bg-pink-500 text-white shadow-md'
-                : 'bg-white text-gray-600 border border-gray-200 hover:bg-pink-50'
-            }`}
-          >
-            <ClipboardList className="h-4 w-4" />
-            My History
-          </button>
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-[#874B61] rounded-2xl flex items-center justify-center shadow-lg shadow-[#874B61]/20">
+              <ClipboardList className="h-6 w-6 text-white" />
+            </div>
+            <h2 className="text-2xl font-bold text-[#874B61]">Medical History</h2>
+          </div>
         </div>
 
         {/* Messages */}
         {error && (
-          <div className="flex items-center gap-2 bg-red-50 text-red-600 text-sm p-4 rounded-xl mb-4 border border-red-200">
+          <div className="flex items-center gap-3 bg-[#874B61]/5 text-[#874B61] text-sm p-4 rounded-2xl mb-6 border border-[#874B61]/10 animate-in fade-in slide-in-from-top-2 duration-300">
             <AlertCircle className="h-5 w-5 flex-shrink-0" />
-            {error}
+            <p className="font-medium">{error}</p>
           </div>
         )}
         {success && (
-          <div className="flex items-center gap-2 bg-green-50 text-green-600 text-sm p-4 rounded-xl mb-4 border border-green-200">
+          <div className="flex items-center gap-3 bg-[#874B61]/5 text-[#874B61] text-sm p-4 rounded-2xl mb-6 border border-[#874B61]/10 animate-in fade-in slide-in-from-top-2 duration-300">
             <CheckCircle className="h-5 w-5 flex-shrink-0" />
-            {success}
+            <p className="font-medium">{success}</p>
           </div>
         )}
 
-        {/* Feedback Form */}
-        {tab === 'form' && (
-          <form onSubmit={handleSubmit} className="card !p-8 space-y-6">
-            <h2 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-              <ClipboardList className="h-5 w-5 text-pink-500" />
-              Medical Feedback Form
-            </h2>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Condition / Disease *</label>
-                <div className="relative">
-                  <select
-                    value={form.condition}
-                    onChange={(e) => setForm({ ...form, condition: e.target.value })}
-                    className="input-field appearance-none pr-10"
-                    required
-                  >
-                    <option value="">Select condition</option>
-                    {CONDITIONS.map((c) => (
-                      <option key={c} value={c}>{c}</option>
-                    ))}
-                  </select>
-                  <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Treatment Type *</label>
-                <div className="relative">
-                  <select
-                    value={form.treatment_type}
-                    onChange={(e) => setForm({ ...form, treatment_type: e.target.value })}
-                    className="input-field appearance-none pr-10"
-                    required
-                  >
-                    <option value="">Select treatment</option>
-                    {TREATMENTS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                  <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Diagnosis Provided *</label>
-              <input
-                type="text"
-                value={form.diagnosis}
-                onChange={(e) => setForm({ ...form, diagnosis: e.target.value })}
-                placeholder="Brief diagnosis from the doctor"
-                className="input-field"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Treatment Duration *</label>
-              <input
-                type="text"
-                value={form.duration}
-                onChange={(e) => setForm({ ...form, duration: e.target.value })}
-                placeholder="e.g., 3 months, 6 weeks"
-                className="input-field"
-                required
-              />
-            </div>
-
-            {/* Scales */}
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Improvement Level: <span className="text-pink-500 font-bold">{form.improvement_level}/5</span>
-                </label>
-                <div className="flex gap-2">
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <button
-                      key={n}
-                      type="button"
-                      onClick={() => setForm({ ...form, improvement_level: n })}
-                      className={`w-10 h-10 rounded-xl text-sm font-bold transition-all ${
-                        form.improvement_level >= n
-                          ? 'bg-pink-500 text-white shadow-md'
-                          : 'bg-pink-100 text-pink-400'
-                      }`}
-                    >
-                      {n}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Satisfaction Score: <span className="text-pink-500 font-bold">{form.satisfaction_score}/5</span>
-                </label>
-                <div className="flex gap-2">
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <button
-                      key={n}
-                      type="button"
-                      onClick={() => setForm({ ...form, satisfaction_score: n })}
-                      className={`w-10 h-10 rounded-xl transition-all ${
-                        form.satisfaction_score >= n
-                          ? 'text-yellow-400'
-                          : 'text-gray-300'
-                      }`}
-                    >
-                      <Star className={`h-8 w-8 ${form.satisfaction_score >= n ? 'fill-yellow-400' : ''}`} />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Toggles */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                <span className="text-sm font-medium text-gray-700">Any Complications?</span>
-                <button
-                  type="button"
-                  onClick={() => setForm({ ...form, complications: !form.complications })}
-                  className={`relative w-12 h-6 rounded-full transition-colors ${
-                    form.complications ? 'bg-red-400' : 'bg-gray-300'
-                  }`}
-                >
-                  <span
-                    className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${
-                      form.complications ? 'translate-x-6' : 'translate-x-0.5'
-                    }`}
-                  />
-                </button>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                <span className="text-sm font-medium text-gray-700">Would Recommend Doctor?</span>
-                <button
-                  type="button"
-                  onClick={() => setForm({ ...form, recommend: !form.recommend })}
-                  className={`relative w-12 h-6 rounded-full transition-colors ${
-                    form.recommend ? 'bg-green-400' : 'bg-gray-300'
-                  }`}
-                >
-                  <span
-                    className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${
-                      form.recommend ? 'translate-x-6' : 'translate-x-0.5'
-                    }`}
-                  />
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Additional Comments</label>
-              <textarea
-                value={form.comments}
-                onChange={(e) => setForm({ ...form, comments: e.target.value })}
-                placeholder="Share your experience..."
-                className="input-field min-h-[100px] resize-y"
-                rows={4}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
-              Submit Feedback
-            </button>
-          </form>
-        )}
 
         {/* History */}
         {tab === 'history' && (
           <div className="space-y-4">
             {loadingHistory ? (
               <div className="card text-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-pink-400 mx-auto" />
-                <p className="text-sm text-gray-400 mt-2">Loading your history...</p>
+                <Loader2 className="h-10 w-10 animate-spin text-[#874B61] mx-auto" />
+                <p className="text-sm text-gray-500 mt-3 font-light">Loading your history...</p>
               </div>
             ) : feedbackList.length === 0 ? (
-              <div className="card text-center py-12">
-                <ClipboardList className="h-12 w-12 text-pink-300 mx-auto mb-3" />
-                <p className="text-gray-500 font-medium">No feedback submitted yet</p>
-                <p className="text-sm text-gray-400 mt-1">Submit your first feedback to see it here</p>
+              <div className="bg-white/40 backdrop-blur-[2px] border border-[#874B61]/5 rounded-[2rem] p-8 text-center max-w-sm mx-auto shadow-sm">
+                <div className="w-14 h-14 bg-white border border-[#874B61]/5 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <ClipboardList className="h-6 w-6 text-[#874B61]/20" />
+                </div>
+                <h3 className="text-base font-bold text-[#874B61]">No feedback yet</h3>
+                <p className="text-gray-500 mt-1 text-xs font-light">Submit your first feedback to see it here</p>
               </div>
             ) : (
               feedbackList.map((fb) => (
-                <div key={fb.id} className="card hover:shadow-lg transition-shadow">
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                    <div>
-                      <span className="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full">
+                <div key={fb.id} className="card !p-7 hover:shadow-xl transition-all duration-300 border-[#874B61]/5 group">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
+                    <div className="flex gap-2">
+                      <span className="inline-block px-4 py-1.5 bg-[#874B61]/10 text-[#874B61] text-xs font-bold uppercase tracking-wider rounded-full">
                         {fb.condition}
                       </span>
-                      <span className="inline-block ml-2 px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">
+                      <span className="inline-block px-4 py-1.5 bg-gray-100 text-gray-600 text-xs font-bold uppercase tracking-wider rounded-full">
                         {fb.treatment_type}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-gray-400">
-                      <Calendar className="h-3 w-3" />
+                    <div className="flex items-center gap-2 text-sm text-gray-400 font-light">
+                      <Calendar className="h-4 w-4" />
                       {new Date(fb.created_at).toLocaleDateString()}
                     </div>
                   </div>
-                  <p className="text-sm text-gray-700 mb-2"><strong>Diagnosis:</strong> {fb.diagnosis}</p>
-                  <p className="text-sm text-gray-700 mb-3"><strong>Duration:</strong> {fb.duration}</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                    <div className="bg-pink-50 p-2 rounded-xl">
-                      <p className="text-lg font-bold text-pink-500">{fb.improvement_level}/5</p>
-                      <p className="text-xs text-gray-500">Improvement</p>
+                  <div className="space-y-1 mb-6">
+                    <p className="text-lg text-gray-800 font-medium leading-tight">{fb.diagnosis}</p>
+                    <p className="text-sm text-gray-500 font-light">{fb.duration}</p>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div className="bg-[#874B61]/5 p-4 rounded-2xl border border-[#874B61]/5 group-hover:bg-[#874B61]/10 transition-colors">
+                      <p className="text-xl font-bold text-[#874B61]">{fb.improvement_level}/5</p>
+                      <p className="text-[10px] uppercase font-bold text-[#874B61]/60 tracking-widest mt-1">Improvement</p>
                     </div>
-                    <div className="bg-yellow-50 p-2 rounded-xl">
-                      <p className="text-lg font-bold text-yellow-500">{fb.satisfaction_score}/5</p>
-                      <p className="text-xs text-gray-500">Satisfaction</p>
+                    <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-100 group-hover:bg-yellow-100/50 transition-colors">
+                      <p className="text-xl font-bold text-yellow-600">{fb.satisfaction_score}/5</p>
+                      <p className="text-[10px] uppercase font-bold text-yellow-600/60 tracking-widest mt-1">Satisfaction</p>
                     </div>
-                    <div className={`p-2 rounded-xl ${fb.complications ? 'bg-red-50' : 'bg-green-50'}`}>
-                      <p className={`text-lg font-bold ${fb.complications ? 'text-red-500' : 'text-green-500'}`}>
+                    <div className={`p-4 rounded-2xl border transition-colors ${fb.complications ? 'bg-[#874B61]/5 border-[#874B61]/10' : 'bg-gray-50 border-gray-100'}`}>
+                      <p className={`text-xl font-bold ${fb.complications ? 'text-[#874B61]' : 'text-gray-400'}`}>
                         {fb.complications ? 'Yes' : 'No'}
                       </p>
-                      <p className="text-xs text-gray-500">Complications</p>
+                      <p className="text-[10px] uppercase font-bold text-gray-500 tracking-widest mt-1">Complications</p>
                     </div>
-                    <div className={`p-2 rounded-xl ${fb.recommend ? 'bg-green-50' : 'bg-red-50'}`}>
-                      <p className={`text-lg font-bold ${fb.recommend ? 'text-green-500' : 'text-red-500'}`}>
+                    <div className={`p-4 rounded-2xl border transition-colors ${fb.recommend ? 'bg-[#874B61]/5 border-[#874B61]/10' : 'bg-gray-50 border-gray-100'}`}>
+                      <p className={`text-xl font-bold ${fb.recommend ? 'text-[#874B61]' : 'text-gray-400'}`}>
                         {fb.recommend ? 'Yes' : 'No'}
                       </p>
-                      <p className="text-xs text-gray-500">Recommend</p>
+                      <p className="text-[10px] uppercase font-bold text-gray-500 tracking-widest mt-1">Recommend</p>
                     </div>
                   </div>
                   {fb.comments && (
-                    <p className="mt-3 text-sm text-gray-500 italic border-t border-gray-100 pt-3">
+                    <p className="mt-6 text-base text-gray-600 font-light italic border-t border-[#874B61]/5 pt-5 leading-relaxed">
                       &ldquo;{fb.comments}&rdquo;
                     </p>
                   )}
