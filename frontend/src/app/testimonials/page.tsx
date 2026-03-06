@@ -55,13 +55,13 @@ export default function TestimonialsPage() {
             <Navbar />
 
             {/* Hero Section */}
-            <section className="pt-28 pb-10 px-4">
+            <section className="pt-20 md:pt-28 pb-10 px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#874B61]/10 rounded-full text-[#874B61] text-sm font-medium mb-6">
                         <MessageSquareHeart className="h-4 w-4" />
                         Patient Testimonials
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-[#874B61] mb-6">
+                    <h1 className="text-3xl md:text-5xl font-bold text-[#874B61] mb-6">
                         What Our Patients Say
                     </h1>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">

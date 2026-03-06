@@ -28,7 +28,7 @@
     @apply w-full px-4 py-3 rounded-xl border border-[#874B61]/20 focus:border-[#874B61] focus:ring-2 focus:ring-[#874B61]/20 outline-none transition-all duration-200 bg-[#F6EEDE];
   }
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-gray-800 mb-4;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4;
   }
   .section-subtitle {
     @apply text-lg text-gray-500 mb-12 max-w-2xl mx-auto;

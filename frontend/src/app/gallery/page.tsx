@@ -47,14 +47,14 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <section className="py-20 bg-[#F6EEDE]">
         <div className="max-w-[1300px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {galleryImages.map((img, index) => (
               <div
                 key={img.src}
                 className="group cursor-pointer"
                 onClick={() => openLightbox(index)}
               >
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-[#874B61]/20 group-hover:border-[#874B61]/40 transition-all duration-500 group-hover:shadow-2xl bg-white w-full">
+                <div className="relative aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-[#874B61]/20 group-hover:border-[#874B61]/40 transition-all duration-500 group-hover:shadow-2xl bg-white w-full">
                   <Image
                     src={img.src}
                     alt={img.alt}
@@ -63,15 +63,15 @@ export default function GalleryPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                  </div>
+                </div>
                 <div className="mt-3 text-center">
                   <p className="font-medium text-[#6B3A4D] text-base">{img.caption}</p>
-                                  </div>
+                </div>
               </div>
             ))}
           </div>
 
-                  </div>
+        </div>
       </section>
 
       {/* Lightbox */}

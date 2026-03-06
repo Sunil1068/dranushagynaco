@@ -129,49 +129,21 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center bg-[#874B61]/10 text-[#874B61] px-4 py-2 rounded-full text-sm font-medium mb-6">
-                Consultant Obstetrician &amp; Gynaecologist
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#874B61] leading-tight mb-4">
-                Dr. Anusha B
-              </h1>
-              <p className="text-base md:text-lg text-[#874B61] font-medium mb-2">
-                M.B.B.S., M.S. (OBG) | DMAS &amp; FMAS | Fellow in ART
-              </p>
-              <p className="text-sm text-gray-500 mb-6">Reg. No: AMC 123387</p>
-              <p className="text-lg text-gray-600 mb-8 max-w-lg">
-                Laparoscopic &amp; Infertility Specialist providing compassionate,
-                evidence-based women&apos;s healthcare at Harshitha Multi-Speciality Hospital, Anantapur.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="btn-primary text-center flex items-center justify-center gap-2">
-                  Book Appointment
-                  <ChevronRight className="h-5 w-5" />
-                </a>
-                <a href="#services" className="btn-secondary text-center">
-                  Our Services
-                </a>
-              </div>
-              <div className="flex gap-8 mt-10 pt-8 border-t border-[#874B61]/20">
-                <div>
-                  <p className="text-3xl font-bold text-[#874B61]">1000+</p>
-                  <p className="text-sm text-gray-500">Patients Treated</p>
+              <div>
+                <div className="inline-flex items-center bg-[#874B61]/10 text-[#874B61] px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  Consultant Obstetrician &amp; Gynaecologist
                 </div>
-                <div>
-                  <p className="text-3xl font-bold text-[#874B61]">500+</p>
-                  <p className="text-sm text-gray-500">Deliveries</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-[#874B61]">100%</p>
-                  <p className="text-sm text-gray-500">Dedication</p>
-                </div>
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <div className="flex items-center justify-center w-full">
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-[#874B61]/20 to-[#874B61]/40 rounded-[2rem] blur-lg opacity-30" />
-                  <div className="relative w-80 h-[28rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#F6EEDE] bg-purple-50">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#874B61] leading-tight mb-4">
+                  Dr. Anusha B
+                </h1>
+                <p className="text-base md:text-lg text-[#874B61] font-medium mb-2">
+                  M.B.B.S., M.S. (OBG) | DMAS &amp; FMAS | Fellow in ART
+                </p>
+                <p className="text-sm text-gray-500 mb-6">Reg. No: AMC 123387</p>
+
+                {/* Mobile Portrait (Visible only on mobile) */}
+                <div className="md:hidden mb-8">
+                  <div className="relative w-full max-w-[280px] aspect-[4/5] mx-auto rounded-3xl overflow-hidden shadow-xl border-4 border-[#F6EEDE] bg-purple-50">
                     <Image
                       src="/images/profile-1.jpeg"
                       alt="Dr. Anusha B"
@@ -179,18 +151,67 @@ export default function HomePage() {
                       className="object-cover object-center scale-[1.02]"
                       priority
                       quality={100}
-                      sizes="(max-width: 768px) 100vw, 400px"
+                      sizes="280px"
                     />
+                    <div className="absolute bottom-3 left-3 bg-[#874B61] text-white p-2 rounded-xl shadow-lg">
+                      <Stethoscope className="h-4 w-4 mb-0.5" />
+                      <p className="text-[10px] font-medium">OBG Specialist</p>
+                    </div>
                   </div>
-                  <div className="absolute -bottom-4 -left-4 bg-[#874B61] text-white p-4 rounded-2xl shadow-lg">
-                    <Stethoscope className="h-6 w-6 mb-1" />
-                    <p className="text-xs font-medium">OBG Specialist</p>
+                </div>
+
+                <p className="text-lg text-gray-600 mb-8 max-w-lg">
+                  Laparoscopic &amp; Infertility Specialist providing compassionate,
+                  evidence-based women&apos;s healthcare at Harshitha Multi-Speciality Hospital, Anantapur.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="#contact" className="btn-primary text-center flex items-center justify-center gap-2">
+                    Book Appointment
+                    <ChevronRight className="h-5 w-5" />
+                  </a>
+                  <a href="#services" className="btn-secondary text-center">
+                    Our Services
+                  </a>
+                </div>
+                <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-[#874B61]/20">
+                  <div>
+                    <p className="text-2xl sm:text-3xl font-bold text-[#874B61]">1000+</p>
+                    <p className="text-[10px] sm:text-sm text-gray-500">Patients Treated</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl sm:text-3xl font-bold text-[#874B61]">500+</p>
+                    <p className="text-[10px] sm:text-sm text-gray-500">Deliveries</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl sm:text-3xl font-bold text-[#874B61]">100%</p>
+                    <p className="text-[10px] sm:text-sm text-gray-500">Dedication</p>
+                  </div>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <div className="flex items-center justify-center w-full">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-[#874B61]/20 to-[#874B61]/40 rounded-[2rem] blur-lg opacity-30" />
+                    <div className="relative w-80 h-[28rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#F6EEDE] bg-purple-50">
+                      <Image
+                        src="/images/profile-1.jpeg"
+                        alt="Dr. Anusha B"
+                        fill
+                        className="object-cover object-center scale-[1.02]"
+                        priority
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                    </div>
+                    <div className="absolute -bottom-4 -left-4 bg-[#874B61] text-white p-4 rounded-2xl shadow-lg">
+                      <Stethoscope className="h-6 w-6 mb-1" />
+                      <p className="text-xs font-medium">OBG Specialist</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* About Section */}

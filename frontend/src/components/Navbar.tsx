@@ -23,7 +23,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full bg-[#F6EEDE]/95 backdrop-blur-sm shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex items-center gap-3 -ml-16">
+          <Link href="/" className="flex items-center gap-3 md:-ml-16">
             <Logo size={44} />
             <span className="text-xl font-semibold text-[#874B61]">
               Dr. Anusha B
@@ -92,50 +92,54 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-[#874B61]/10">
-            <div className="flex flex-col gap-2 pt-4">
+          <div className="md:hidden border-t border-[#874B61]/10 bg-[#F6EEDE] animate-in slide-in-from-top duration-300">
+            <div className="flex flex-col gap-1 py-6 px-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#874B61] hover:bg-[#874B61]/10 rounded-lg"
+                  className="px-4 py-3 text-lg font-medium text-[#6B3A4D] hover:text-[#874B61] hover:bg-[#874B61]/5 rounded-xl transition-all"
                 >
                   {link.label}
                 </a>
               ))}
+              <div className="h-px bg-[#874B61]/10 my-4" />
               {isAuthenticated ? (
-                <>
+                <div className="flex flex-col gap-2">
                   {role === 'doctor' ? (
                     <Link
                       href="/dashboard"
                       onClick={() => setIsOpen(false)}
-                      className="px-3 py-2 text-sm font-medium text-[#874B61] hover:bg-[#874B61]/10 rounded-lg"
+                      className="px-4 py-3 text-lg font-semibold text-[#874B61] hover:bg-[#874B61]/5 rounded-xl flex items-center gap-3"
                     >
+                      <Activity className="h-5 w-5" />
                       Dashboard
                     </Link>
                   ) : (
                     <Link
                       href="/patient"
                       onClick={() => setIsOpen(false)}
-                      className="px-3 py-2 text-sm font-medium text-[#874B61] hover:bg-[#874B61]/10 rounded-lg"
+                      className="px-4 py-3 text-lg font-semibold text-[#874B61] hover:bg-[#874B61]/5 rounded-xl flex items-center gap-3"
                     >
+                      <User className="h-5 w-5" />
                       My Account
                     </Link>
                   )}
                   <button
                     onClick={() => { logout(); setIsOpen(false); }}
-                    className="px-3 py-2 text-sm font-medium text-left text-[#874B61] hover:bg-[#874B61]/10 rounded-lg"
+                    className="px-4 py-3 text-lg font-semibold text-left text-[#874B61] hover:bg-[#874B61]/5 rounded-xl flex items-center gap-3"
                   >
+                    <LogOut className="h-5 w-5" />
                     Logout
                   </button>
-                </>
+                </div>
               ) : (
-                <div className="flex flex-col gap-2 px-3 pt-2">
-                  <Link href="/login" className="btn-secondary text-center text-sm !py-2">
+                <div className="flex flex-col gap-3 mt-2">
+                  <Link href="/login" className="btn-secondary text-center text-sm !py-3 !rounded-xl">
                     Patient Login
                   </Link>
-                  <Link href="/doctor-login" className="btn-primary text-center text-sm !py-2">
+                  <Link href="/doctor-login" className="btn-primary text-center text-sm !py-3 !rounded-xl">
                     Doctor Login
                   </Link>
                 </div>
