@@ -214,14 +214,14 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 md:py-20 bg-[#F6EEDE]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
+      <section id="about" className="py-8 md:py-16 bg-[#F6EEDE]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[0.9fr_1fr] gap-8 lg:gap-12 items-center">
             <div className="relative">
-              <div className="absolute top-1/2 -right-5 w-12 h-12 bg-[#874B61]/15 rounded-full" />
-              <div className="absolute -bottom-6 left-16 w-28 h-28 bg-[#874B61]/12 rounded-full" />
+              <div className="absolute top-1/2 -right-3 w-10 h-10 bg-[#874B61]/15 rounded-full" />
+              <div className="absolute -bottom-4 left-12 w-20 h-20 bg-[#874B61]/12 rounded-full" />
 
-              <div className="relative h-[420px] sm:h-[520px] rounded-[2.5rem] overflow-hidden border border-[#874B61]/20 shadow-2xl bg-white">
+              <div className="relative h-[300px] sm:h-[420px] rounded-[2rem] overflow-hidden border border-[#874B61]/20 shadow-xl bg-white">
                 <Image
                   src="/images/profile-2.jpg"
                   alt="Dr. Anusha B"
@@ -229,29 +229,29 @@ export default function HomePage() {
                   className="object-cover scale-[1.02]"
                   style={{ objectPosition: 'center 45%' }}
                   quality={100}
-                  sizes="(max-width: 1024px) 100vw, 700px"
+                  sizes="(max-width: 1024px) 100vw, 500px"
                 />
               </div>
             </div>
 
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#874B61] mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4 leading-tight">
                 About <span style={{ color: '#874B61' }}>Dr. Anusha B</span>
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
                 Dr. Anusha B is a distinguished Obstetrician &amp; Gynaecologist with comprehensive experience in women&apos;s health. With strong academic credentials and advanced laparoscopic and reproductive training, she offers evidence-based, compassionate care tailored to every patient.
               </p>
 
-              <h3 className="text-2xl font-bold text-[#874B61] mb-4">Areas of Expertise</h3>
-              <div className="space-y-3 mb-8">
+              <h3 className="text-xl font-bold text-[#874B61] mb-3">Areas of Expertise</h3>
+              <div className="space-y-2 mb-6">
                 {[
                   'Obstetrics',
                   'Infertility',
                   'Gynaecology',
                   'Laparoscopic Surgeries',
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 text-lg text-[#2F2A4E]">
-                    <CheckCircle className="h-5 w-5 text-[#874B61]" />
+                  <div key={item} className="flex items-center gap-2 text-base md:text-lg text-[#2F2A4E]">
+                    <CheckCircle className="h-4 w-4 text-[#874B61]" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -259,10 +259,10 @@ export default function HomePage() {
 
               <a
                 href="#experience"
-                className="inline-flex items-center gap-2 bg-[#F6EEDE] border-2 border-[#874B61]/35 text-[#874B61] hover:bg-[#874B61]/10 font-semibold px-8 py-3 rounded-2xl transition-all"
+                className="inline-flex items-center gap-2 bg-[#F6EEDE] border-2 border-[#874B61]/35 text-[#874B61] hover:bg-[#874B61]/10 font-semibold px-6 py-2.5 rounded-xl transition-all text-sm md:text-base"
               >
                 Know More About Doctor
-                <ChevronRight className="h-5 w-5" />
+                <ChevronRight className="h-4 w-4" />
               </a>
             </div>
           </div>
