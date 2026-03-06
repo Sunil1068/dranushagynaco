@@ -1,7 +1,12 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from app.config import MONGODB_URL, DATABASE_NAME
 
-client = AsyncIOMotorClient(MONGODB_URL, serverSelectionTimeoutMS=5000)
+client = AsyncIOMotorClient(
+    MONGODB_URL, 
+    serverSelectionTimeoutMS=5000,
+    tls=True,
+    tlsAllowInvalidCertificates=False
+)
 db = client[DATABASE_NAME]
 
 patients_collection = db["patients"]
