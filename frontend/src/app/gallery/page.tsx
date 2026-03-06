@@ -22,32 +22,33 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#FDF8F0]/30">
       <Navbar />
 
-      {/* Hero Banner */}
-      <section className="pt-16">
-        <div className="bg-[#F6EEDE] py-8 md:py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[rgba(135,75,97,0.08)] rounded-xl flex items-center justify-center">
-                <Camera className="h-7 w-7 text-[#874B61]" />
-              </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-[#874B61]">
-                Patient Gallery
-              </h1>
+      {/* Hero Header Section */}
+      <section className="pt-24 pb-8 md:pt-32 md:pb-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#FDF8F0] rounded-3xl p-6 md:p-10 shadow-sm border border-[#874B61]/5 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
+            <div className="w-20 h-20 bg-[#874B61]/10 rounded-2xl flex items-center justify-center flex-shrink-0 animate-in fade-in zoom-in duration-500">
+              <Camera className="h-10 w-10 text-[#874B61]" />
             </div>
-            <p className="text-[#754054]/90 text-xl max-w-3xl mx-auto leading-relaxed">
-              Step into our Patient Gallery—a celebration of courage, resilience, and healing. Each image reflects unique journeys and inspiring stories of those we've cared for. Join us in celebrating their paths to wellness and smiles that tell their stories.
-            </p>
+            <div className="flex-1 text-center md:text-left">
+              <h1 className="text-3xl md:text-5xl font-bold text-[#874B61] mb-6 animate-in slide-in-from-left duration-500">
+                Patient <span className="text-[#874B61]">Gallery</span>
+              </h1>
+              <div className="w-20 h-1.5 bg-[#874B61] rounded-full mb-6 opacity-30 mx-auto md:mx-0" />
+              <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed animate-in fade-in slide-in-from-bottom duration-700 delay-200">
+                Step into our Patient Gallery—a celebration of courage, resilience, and healing. Each image reflects unique journeys and inspiring stories of those we&apos;ve cared for. Join us in celebrating their paths to wellness and smiles that tell their stories.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-[#F6EEDE]">
+      <section className="py-12 md:py-20">
         <div className="max-w-[1300px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {galleryImages.map((img, index) => (
               <div
                 key={img.src}
