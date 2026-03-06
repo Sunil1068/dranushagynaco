@@ -163,26 +163,26 @@ export default function HomePage() {
                 Laparoscopic &amp; Infertility Specialist providing compassionate,
                 evidence-based women&apos;s healthcare at Harshitha Multi-Speciality Hospital, Anantapur.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="btn-primary text-center flex items-center justify-center gap-2">
-                  Book Appointment
-                  <ChevronRight className="h-5 w-5" />
+              <div className="flex flex-row gap-3 md:gap-4 mt-2">
+                <a href="#contact" className="btn-primary !px-4 md:!px-8 !py-2.5 md:!py-3 !text-sm md:!text-base !rounded-full flex items-center justify-center gap-2 whitespace-nowrap">
+                  Book Now
+                  <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
                 </a>
-                <a href="#services" className="btn-secondary text-center">
-                  Our Services
+                <a href="#services" className="btn-secondary !px-4 md:!px-8 !py-2.5 md:!py-3 !text-sm md:!text-base !rounded-full whitespace-nowrap">
+                  Services
                 </a>
               </div>
-              <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-[#874B61]/20">
+              <div className="grid grid-cols-3 gap-2 md:gap-4 mt-10 pt-8 border-t border-[#874B61]/20 text-center md:text-left">
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#874B61]">1000+</p>
+                  <p className="text-xl sm:text-3xl font-bold text-[#874B61]">1000+</p>
                   <p className="text-[10px] sm:text-sm text-gray-500">Patients Treated</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#874B61]">500+</p>
+                  <p className="text-xl sm:text-3xl font-bold text-[#874B61]">500+</p>
                   <p className="text-[10px] sm:text-sm text-gray-500">Deliveries</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#874B61]">100%</p>
+                  <p className="text-xl sm:text-3xl font-bold text-[#874B61]">100%</p>
                   <p className="text-[10px] sm:text-sm text-gray-500">Dedication</p>
                 </div>
               </div>
@@ -214,7 +214,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-[#F6EEDE]">
+      <section id="about" className="py-12 md:py-20 bg-[#F6EEDE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
             <div className="relative">
@@ -336,7 +336,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-[#FFFFFF]">
+      <section id="services" className="py-12 md:py-20 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4">
@@ -347,15 +347,15 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-            {services.map((service) => (
+            {services.map((service, idx) => (
               <div
                 key={service.title}
-                className="bg-[#F6EEDE] border border-[#874B61]/10 rounded-2xl p-4 md:p-6 hover:shadow-xl transition-all duration-300 group text-left"
+                className={`bg-[#FDF8F0] border border-[#874B61]/10 rounded-2xl p-4 md:p-6 hover:shadow-xl transition-all duration-300 group text-left ${service.title === 'Assisted Reproductive Techniques' ? 'hidden md:block' : ''}`}
               >
                 <div className="w-10 h-10 md:w-16 md:h-16 bg-[#874B61]/10 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-[#874B61] transition-colors">
                   <service.icon className="h-5 w-5 md:h-8 md:w-8 text-[#874B61] group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-2 md:utf-8 md:mb-3">{service.title}</h3>
+                <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-3">{service.title}</h3>
                 <p className="text-[11px] md:text-base text-gray-600 leading-relaxed line-clamp-3 md:line-clamp-none">{service.desc}</p>
               </div>
             ))}
@@ -364,8 +364,8 @@ export default function HomePage() {
       </section>
 
       {/* Leadership & Vision */}
-      <section className="py-20 bg-[#FFFFFF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-12 md:py-20 bg-[#FFFFFF]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center border-t border-[#874B61]/10 pt-16">
           <h2 className="section-title text-[#874B61]">Leadership &amp; <span className="text-[#874B61]">Vision</span></h2>
           <p className="section-subtitle">
             Committed to advancing women&apos;s healthcare through expertise and compassion
@@ -383,44 +383,14 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* CTA Section */}
-      <section className="py-20 bg-[#FFFFFF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mt-16 bg-[#F6EEDE] rounded-2xl p-8 shadow-lg border border-[#874B61]/10 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-250 ease-out">
-            <h2 className="text-xl md:text-2xl font-bold text-[#6F3D50] mb-6 text-center">
-              Your Health is Our Priority
-            </h2>
-            <p className="text-[#6F3D50] text-lg mb-8 text-center max-w-2xl mx-auto">
-              Book your appointment today with Dr. Anusha B for expert, compassionate gynaecological care.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:08554243422"
-                className="inline-flex items-center gap-3 bg-[#874B61] border-2 border-[#874B61]/35 text-[#F6EEDE] hover:bg-[#874B61]/90 font-semibold px-8 py-3 rounded-2xl transition-all"
-              >
-                <Phone className="h-5 w-5" />
-                Call: 08554 243422
-              </a>
-              <Link
-                href="/login"
-                className="inline-flex items-center gap-3 bg-[#874B61] border-2 border-[#874B61]/35 text-[#F6EEDE] hover:bg-[#874B61]/90 font-semibold px-8 py-3 rounded-2xl transition-all"
-              >
-                <Calendar className="h-5 w-5" />
-                Patient Portal Login
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-[#FFFFFF]">
+      <section id="contact" className="py-12 md:py-20 bg-[#FDF8F0]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#874B61] mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#874B61] mb-6">
               Get in <span className="text-[#874B61]">Touch</span>
             </h2>
+            <div className="w-20 h-1.5 bg-[#874B61] mx-auto rounded-full mb-6 opacity-30" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Visit our hospital or call to book an appointment
             </p>
@@ -428,51 +398,49 @@ export default function HomePage() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Phone Card */}
-            <div className="bg-[#F6EEDE] rounded-2xl p-8 shadow-lg border border-[#874B61]/10 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-250 ease-out">
-              <div className="w-14 h-14 bg-[#874B61] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <Phone className="h-7 w-7 text-white" />
+            <div className="bg-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(135,75,97,0.05)] border border-[#874B61]/5 hover:border-[#874B61]/20 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-[#FDF8F0] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#874B61] transition-all duration-300">
+                <Phone className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Phone</h3>
-              <a href="tel:08554243422" className="text-[#874B61] text-lg font-semibold hover:text-[#6B3A4D] transition-colors block mb-2">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Phone</h3>
+              <a href="tel:08554243422" className="text-[#874B61] text-2xl font-bold hover:text-[#6B3A4D] transition-colors block mb-2">
                 08554 243422
               </a>
-              <p className="text-gray-600 text-sm">Call to book appointment</p>
+              <p className="text-gray-500 font-medium">Available during clinic hours for appointments</p>
             </div>
 
             {/* Address Card */}
-            <div className="bg-[#F6EEDE] rounded-2xl p-8 shadow-lg border border-[#874B61]/10 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-250 ease-out">
-              <div className="w-14 h-14 bg-[#874B61] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <MapPin className="h-7 w-7 text-white" />
+            <div className="bg-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(135,75,97,0.05)] border border-[#874B61]/5 hover:border-[#874B61]/20 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-[#FDF8F0] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#874B61] transition-all duration-300">
+                <MapPin className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Hospital Address</h3>
-              <div className="space-y-1">
-                <p className="text-[#874B61] text-lg font-semibold">Harshitha Multi-Speciality Hospital</p>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  #6-3-984, 1st Cross Road<br />
-                  Maruthi Nagar, Anantapur<br />
-                  Andhra Pradesh – 515002
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Location</h3>
+              <div className="space-y-2">
+                <p className="text-[#874B61] font-bold text-lg">Harshitha Multi-Speciality Hospital</p>
+                <p className="text-gray-500 leading-relaxed font-medium">
+                  #6-3-984, 1st Cross Road, Maruthi Nagar, Anantapur, AP – 515002
                 </p>
               </div>
             </div>
 
             {/* Visiting Hours Card */}
-            <div className="bg-[#F6EEDE] rounded-2xl p-8 shadow-lg border border-[#874B61]/10 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-250 ease-out">
-              <div className="w-14 h-14 bg-[#874B61] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <Clock className="h-7 w-7 text-white" />
+            <div className="bg-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(135,75,97,0.05)] border border-[#874B61]/5 hover:border-[#874B61]/20 hover:-translate-y-2 transition-all duration-300 group lg:col-span-1">
+              <div className="w-16 h-16 bg-[#FDF8F0] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#874B61] transition-all duration-300">
+                <Clock className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Visiting Hours</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600 text-sm">Morning</span>
-                  <span className="text-[#874B61] font-semibold text-sm">9:00 AM – 1:00 PM</span>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Clinic Hours</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center pb-4 border-b border-gray-50">
+                  <span className="text-gray-600 font-medium text-sm md:text-base">Mornings</span>
+                  <span className="text-[#874B61] font-bold text-sm md:text-base bg-[#FDF8F0] px-3 py-1 rounded-lg">9:00 AM – 1:00 PM</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600 text-sm">Evening</span>
-                  <span className="text-[#874B61] font-semibold text-sm">5:00 PM – 9:00 PM</span>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 font-medium text-sm md:text-base">Evenings</span>
+                  <span className="text-[#874B61] font-bold text-sm md:text-base bg-[#FDF8F0] px-3 py-1 rounded-lg">5:00 PM – 9:00 PM</span>
                 </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="text-gray-600 text-sm">Emergency</span>
-                  <span className="text-[#874B61] font-semibold text-sm">24/7 Available</span>
+                <div className="mt-4 pt-4 border-t border-gray-50 flex items-center gap-2 text-[#874B61]">
+                  <Activity className="h-4 w-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">24/7 Emergency Available</span>
                 </div>
               </div>
             </div>

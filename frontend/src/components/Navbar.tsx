@@ -70,14 +70,9 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-2">
-                <Link href="/login" className="btn-secondary !py-2 !px-5 text-sm">
-                  Patient Login
-                </Link>
-                <Link href="/doctor-login" className="btn-primary !py-2 !px-5 text-sm">
-                  Doctor Login
-                </Link>
-              </div>
+              <Link href="/login" className="btn-primary !py-2 !px-6 text-sm !rounded-full">
+                Login
+              </Link>
             )}
           </div>
 
@@ -115,7 +110,7 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="h-px bg-[#874B61]/10 my-4" />
-              {isAuthenticated ? (
+              {isAuthenticated && (
                 <div className="flex flex-col gap-2">
                   {role === 'doctor' ? (
                     <Link
@@ -144,13 +139,11 @@ export default function Navbar() {
                     Logout
                   </button>
                 </div>
-              ) : (
-                <div className="flex flex-col gap-3 mt-2">
-                  <Link href="/login" className="btn-secondary text-center text-sm !py-3 !rounded-xl">
-                    Patient Login
-                  </Link>
-                  <Link href="/doctor-login" className="btn-primary text-center text-sm !py-3 !rounded-xl">
-                    Doctor Login
+              )}
+              {!isAuthenticated && (
+                <div className="mt-2 text-center">
+                  <Link href="/login" onClick={() => setIsOpen(false)} className="btn-primary text-sm !py-3 !rounded-xl block">
+                    Login Portal
                   </Link>
                 </div>
               )}
