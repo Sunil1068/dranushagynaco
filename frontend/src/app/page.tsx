@@ -227,7 +227,7 @@ export default function HomePage() {
                   alt="Dr. Anusha B"
                   fill
                   className="object-cover scale-[1.02]"
-                  style={{ objectPosition: 'center 45%' }}
+                  style={{ objectPosition: 'center 20%' }}
                   quality={100}
                   sizes="(max-width: 1024px) 100vw, 500px"
                 />

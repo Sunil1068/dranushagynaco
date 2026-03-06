@@ -29,8 +29,8 @@ export default function GalleryPage() {
       {/* Hero Header Section - Seamless Blend UI */}
       <section className="pt-24 pb-10 md:pt-32 md:pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-[#874B61] tracking-tight mb-4 animate-in slide-in-from-top duration-700 flex items-center justify-center gap-4">
-            <Camera size={40} className="text-[#874B61]/80" strokeWidth={1.5} />
+          <h1 className="text-[21px] md:text-[34px] font-bold text-[#874B61] tracking-tight mb-4 animate-in slide-in-from-top duration-700 flex items-center justify-center gap-4">
+            <Camera size={28} className="text-[#874B61]/80" strokeWidth={1.5} />
             <span>Patient <span className="text-[#874B61]">Gallery</span></span>
           </h1>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
@@ -49,12 +49,12 @@ export default function GalleryPage() {
                 className="group cursor-pointer"
                 onClick={() => openLightbox(index)}
               >
-                <div className="relative aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-[#874B61]/20 group-hover:border-[#874B61]/40 transition-all duration-500 group-hover:shadow-2xl bg-white w-full">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-[#874B61]/20 group-hover:border-[#874B61]/40 transition-all duration-500 group-hover:shadow-2xl bg-white w-full">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className={`object-cover transition-transform duration-700 ${['/images/gallery-1.jpg', '/images/gallery-3.jpg'].includes(img.src) ? 'object-top' : 'object-center group-hover:scale-110'}`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
