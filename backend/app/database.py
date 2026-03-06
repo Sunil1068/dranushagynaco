@@ -1,3 +1,4 @@
+import certifi
 from motor.motor_asyncio import AsyncIOMotorClient
 from app.config import MONGODB_URL, DATABASE_NAME
 
@@ -5,6 +6,7 @@ client = AsyncIOMotorClient(
     MONGODB_URL, 
     serverSelectionTimeoutMS=5000,
     tls=True,
+    tlsCAFile=certifi.where(),
     tlsAllowInvalidCertificates=False
 )
 db = client[DATABASE_NAME]
