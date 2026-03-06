@@ -160,8 +160,7 @@ export default function AdminDashboardPage() {
                     </button>
                 </div>
 
-                {/* Tabs */}
-                <div className="flex gap-2 mb-8 overflow-x-auto pb-1">
+                <div className="flex gap-2 mb-8 overflow-x-auto pb-1 no-scrollbar">
                     {(['overview', 'feedback', 'alerts'] as const).map((t) => (
                         <button
                             key={t}
@@ -236,18 +235,33 @@ export default function AdminDashboardPage() {
                                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Top Conditions</h3>
                                 {metrics.top_conditions.length > 0 ? (
                                     <ResponsiveContainer width="100%" height={300}>
-                                        <BarChart data={metrics.top_conditions}>
-                                            <CartesianGrid strokeDasharray="3 3" stroke="#f3e8ee" />
-                                            <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-                                            <YAxis tick={{ fontSize: 11 }} domain={[0, 'dataMax']} tickFormatter={(value) => Math.round(value).toString()} />
+                                        <BarChart
+                                            data={metrics.top_conditions}
+                                            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+                                        >
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#f3e8ee" vertical={false} />
+                                            <XAxis
+                                                dataKey="name"
+                                                tick={{ fontSize: 11, fill: '#6B7280' }}
+                                                axisLine={false}
+                                                tickLine={false}
+                                            />
+                                            <YAxis
+                                                tick={{ fontSize: 11, fill: '#6B7280' }}
+                                                domain={[0, 'dataMax']}
+                                                tickFormatter={(value) => Math.round(value).toString()}
+                                                axisLine={false}
+                                                tickLine={false}
+                                            />
                                             <Tooltip
+                                                cursor={{ fill: 'transparent' }}
                                                 contentStyle={{
                                                     borderRadius: '12px',
                                                     border: '1px solid #f3e8ee',
                                                     boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'
                                                 }}
                                             />
-                                            <Bar dataKey="count" fill="#874B61" radius={[8, 8, 0, 0]} />
+                                            <Bar dataKey="count" fill="#874B61" radius={[6, 6, 0, 0]} barSize={40} />
                                         </BarChart>
                                     </ResponsiveContainer>
                                 ) : (
@@ -262,11 +276,26 @@ export default function AdminDashboardPage() {
                                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Monthly Patient Growth</h3>
                                 {metrics.monthly_growth.length > 0 ? (
                                     <ResponsiveContainer width="100%" height={300}>
-                                        <LineChart data={metrics.monthly_growth}>
-                                            <CartesianGrid strokeDasharray="3 3" stroke="#f3e8ee" />
-                                            <XAxis dataKey="month" tick={{ fontSize: 11 }} />
-                                            <YAxis tick={{ fontSize: 11 }} domain={[0, 'dataMax']} tickFormatter={(value) => Math.round(value).toString()} />
+                                        <LineChart
+                                            data={metrics.monthly_growth}
+                                            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+                                        >
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#f3e8ee" vertical={false} />
+                                            <XAxis
+                                                dataKey="month"
+                                                tick={{ fontSize: 11, fill: '#6B7280' }}
+                                                axisLine={false}
+                                                tickLine={false}
+                                            />
+                                            <YAxis
+                                                tick={{ fontSize: 11, fill: '#6B7280' }}
+                                                domain={[0, 'dataMax']}
+                                                tickFormatter={(value) => Math.round(value).toString()}
+                                                axisLine={false}
+                                                tickLine={false}
+                                            />
                                             <Tooltip
+                                                cursor={{ stroke: '#B06E87', strokeWidth: 1 }}
                                                 contentStyle={{
                                                     borderRadius: '12px',
                                                     border: '1px solid #f3e8ee',
@@ -278,8 +307,8 @@ export default function AdminDashboardPage() {
                                                 dataKey="count"
                                                 stroke="#874B61"
                                                 strokeWidth={3}
-                                                dot={{ fill: '#874B61', r: 5 }}
-                                                activeDot={{ r: 7 }}
+                                                dot={{ fill: '#874B61', r: 4 }}
+                                                activeDot={{ r: 6, stroke: 'white', strokeWidth: 2 }}
                                             />
                                         </LineChart>
                                     </ResponsiveContainer>
