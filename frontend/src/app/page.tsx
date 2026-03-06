@@ -176,7 +176,7 @@ export default function HomePage() {
                       src="/images/profile-1.jpeg"
                       alt="Dr. Anusha B"
                       fill
-                      className="object-cover object-center"
+                      className="object-cover object-center scale-[1.02]"
                       priority
                       quality={100}
                       sizes="(max-width: 768px) 100vw, 400px"
@@ -206,7 +206,7 @@ export default function HomePage() {
                   src="/images/profile-2.jpg"
                   alt="Dr. Anusha B"
                   fill
-                  className="object-cover"
+                  className="object-cover scale-[1.02]"
                   style={{ objectPosition: 'center 45%' }}
                   quality={100}
                   sizes="(max-width: 1024px) 100vw, 700px"
