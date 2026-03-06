@@ -165,11 +165,11 @@ export default function HomePage() {
               </p>
               <div className="flex flex-row gap-3 md:gap-4 mt-2">
                 <a href="#contact" className="btn-primary !px-4 md:!px-8 !py-2.5 md:!py-3 !text-sm md:!text-base !rounded-full flex items-center justify-center gap-2 whitespace-nowrap">
-                  Book Now
+                  Book Appointment
                   <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
                 </a>
                 <a href="#services" className="btn-secondary !px-4 md:!px-8 !py-2.5 md:!py-3 !text-sm md:!text-base !rounded-full whitespace-nowrap">
-                  Services
+                  Our Services
                 </a>
               </div>
               <div className="grid grid-cols-3 gap-2 md:gap-4 mt-10 pt-8 border-t border-[#874B61]/20 text-center md:text-left">
@@ -396,51 +396,55 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6">
             {/* Phone Card */}
-            <div className="bg-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(135,75,97,0.05)] border border-[#874B61]/5 hover:border-[#874B61]/20 hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-[#FDF8F0] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#874B61] transition-all duration-300">
-                <Phone className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
+            <div className="bg-[#FDF8F0] rounded-2xl p-6 shadow-md border border-[#874B61]/5 hover:shadow-xl transition-all duration-300 group flex items-start gap-5">
+              <div className="w-14 h-14 bg-[#874B61]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#874B61] transition-all duration-300">
+                <Phone className="h-7 w-7 text-[#874B61] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Phone</h3>
-              <a href="tel:08554243422" className="text-[#874B61] text-2xl font-bold hover:text-[#6B3A4D] transition-colors block mb-2">
-                08554 243422
-              </a>
-              <p className="text-gray-500 font-medium">Available during clinic hours for appointments</p>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
+                <a href="tel:08554243422" className="text-[#874B61] text-xl font-bold hover:text-[#6B3A4D] transition-colors block">
+                  08554 243422
+                </a>
+                <p className="text-gray-500 text-sm mt-1">Call to book appointment</p>
+              </div>
             </div>
 
             {/* Address Card */}
-            <div className="bg-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(135,75,97,0.05)] border border-[#874B61]/5 hover:border-[#874B61]/20 hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-[#FDF8F0] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#874B61] transition-all duration-300">
-                <MapPin className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
+            <div className="bg-[#FDF8F0] rounded-2xl p-6 shadow-md border border-[#874B61]/5 hover:shadow-xl transition-all duration-300 group flex items-start gap-5">
+              <div className="w-14 h-14 bg-[#874B61]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#874B61] transition-all duration-300">
+                <MapPin className="h-7 w-7 text-[#874B61] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Location</h3>
-              <div className="space-y-2">
-                <p className="text-[#874B61] font-bold text-lg">Harshitha Multi-Speciality Hospital</p>
-                <p className="text-gray-500 leading-relaxed font-medium">
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Location</h3>
+                <p className="text-[#874B61] font-bold">Harshitha Multi-Speciality Hospital</p>
+                <p className="text-gray-500 text-sm leading-relaxed mt-1">
                   #6-3-984, 1st Cross Road, Maruthi Nagar, Anantapur, AP – 515002
                 </p>
               </div>
             </div>
 
             {/* Visiting Hours Card */}
-            <div className="bg-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(135,75,97,0.05)] border border-[#874B61]/5 hover:border-[#874B61]/20 hover:-translate-y-2 transition-all duration-300 group lg:col-span-1">
-              <div className="w-16 h-16 bg-[#FDF8F0] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#874B61] transition-all duration-300">
-                <Clock className="h-8 w-8 text-[#874B61] group-hover:text-white transition-colors" />
+            <div className="bg-[#FDF8F0] rounded-2xl p-6 shadow-md border border-[#874B61]/5 hover:shadow-xl transition-all duration-300 group flex items-start gap-5">
+              <div className="w-14 h-14 bg-[#874B61]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#874B61] transition-all duration-300">
+                <Clock className="h-7 w-7 text-[#874B61] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Clinic Hours</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center pb-4 border-b border-gray-50">
-                  <span className="text-gray-600 font-medium text-sm md:text-base">Mornings</span>
-                  <span className="text-[#874B61] font-bold text-sm md:text-base bg-[#FDF8F0] px-3 py-1 rounded-lg">9:00 AM – 1:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 font-medium text-sm md:text-base">Evenings</span>
-                  <span className="text-[#874B61] font-bold text-sm md:text-base bg-[#FDF8F0] px-3 py-1 rounded-lg">5:00 PM – 9:00 PM</span>
-                </div>
-                <div className="mt-4 pt-4 border-t border-gray-50 flex items-center gap-2 text-[#874B61]">
-                  <Activity className="h-4 w-4" />
-                  <span className="text-xs font-bold uppercase tracking-wider">24/7 Emergency Available</span>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Clinic Hours</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600 font-medium">Morning</span>
+                    <span className="text-[#874B61] font-bold">9:00 AM – 1:00 PM</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600 font-medium">Evening</span>
+                    <span className="text-[#874B61] font-bold">5:00 PM – 9:00 PM</span>
+                  </div>
+                  <div className="pt-2 border-t border-[#874B61]/10 flex items-center gap-2">
+                    <Activity className="h-3 w-3 text-[#874B61]" />
+                    <span className="text-[10px] font-bold text-[#874B61] uppercase tracking-wider">24/7 Energy Available</span>
+                  </div>
                 </div>
               </div>
             </div>
