@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
@@ -32,6 +33,11 @@ app.add_middleware(
 app.include_router(auth_router, prefix="/api")
 app.include_router(patient_router, prefix="/api")
 app.include_router(doctor_router, prefix="/api")
+
+
+@app.get("/", include_in_schema=False)
+async def root():
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/api/health")
