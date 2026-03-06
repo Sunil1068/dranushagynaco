@@ -22,22 +22,27 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FDF8F0]/30">
+    <main className="min-h-screen bg-[#FDF8F0]/30 transition-colors duration-500">
       <Navbar />
 
-      {/* Hero Header Section */}
-      <section className="pt-24 pb-8 md:pt-32 md:pb-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#FDF8F0] rounded-3xl p-6 md:p-10 shadow-sm border border-[#874B61]/5 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
-            <div className="w-20 h-20 bg-[#874B61]/10 rounded-2xl flex items-center justify-center flex-shrink-0 animate-in fade-in zoom-in duration-500">
-              <Camera className="h-10 w-10 text-[#874B61]" />
+      {/* Hero Header Section - Premium Minimal UI */}
+      <section className="pt-28 pb-10 md:pt-40 md:pb-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="group relative bg-white/40 backdrop-blur-md rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-16 shadow-2xl shadow-[#874B61]/5 border border-white/40 flex flex-col md:flex-row items-center gap-8 md:gap-14 transition-all duration-700 hover:shadow-3xl hover:scale-[1.01] hover:bg-white/50">
+            {/* Glass Icon Badge */}
+            <div className="relative flex-shrink-0">
+              <div className="absolute inset-0 bg-[#874B61]/10 blur-2xl rounded-full scale-150 opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
+              <div className="relative w-24 h-24 md:w-32 md:h-32 bg-white/60 backdrop-blur-xl rounded-[2rem] md:rounded-[2.5rem] flex items-center justify-center shadow-inner border border-white/80 transition-transform duration-700 group-hover:rotate-6">
+                <Camera className="h-10 w-10 md:h-14 md:w-14 text-[#874B61] opacity-90" />
+              </div>
             </div>
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl md:text-5xl font-bold text-[#874B61] mb-6 animate-in slide-in-from-left duration-500">
-                Patient <span className="text-[#874B61]">Gallery</span>
+
+            {/* Typography Content */}
+            <div className="flex-1 text-center md:text-left space-y-4 md:space-y-6">
+              <h1 className="text-4xl md:text-7xl font-bold text-[#874B61] tracking-tight leading-[1.1] animate-in slide-in-from-bottom duration-700">
+                Patient <span className="text-[#874B61]/80">Gallery</span>
               </h1>
-              <div className="w-20 h-1.5 bg-[#874B61] rounded-full mb-6 opacity-30 mx-auto md:mx-0" />
-              <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed animate-in fade-in slide-in-from-bottom duration-700 delay-200">
+              <p className="text-gray-500/90 text-lg md:text-2xl font-light leading-relaxed md:leading-loose max-w-3xl animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
                 Step into our Patient Gallery—a celebration of courage, resilience, and healing. Each image reflects unique journeys and inspiring stories of those we&apos;ve cared for. Join us in celebrating their paths to wellness and smiles that tell their stories.
               </p>
             </div>
